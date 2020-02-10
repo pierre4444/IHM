@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/nomQuestion"
+        android:layout_width="match_parent"
+        android:layout_height="69dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="10dp"
+        android:background="#BBDEFB"
+        android:gravity="center"
+        android:text="Quel est votre prénom ?"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="#FFA000"></TextView>
+
+    <EditText
+        android:id="@+id/nomChamps"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#E3F2FD"
+        android:hint="Veuillez entrer votre nom"></EditText>
+
+    <Button
+        android:id="@+id/validerBouton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="#E3F2FD"
+        android:text="Valider"></Button>
+
+</LinearLayout>
