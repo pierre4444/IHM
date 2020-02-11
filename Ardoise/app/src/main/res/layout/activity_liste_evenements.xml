@@ -8,15 +8,18 @@
     tools:context=".ListeEvenementsActivity">
 
     <ListView
+        android:id="@+id/liste"
         android:layout_width="match_parent"
-        android:layout_height="621dp" />
+        android:layout_height="621dp"
+        android:layout_marginTop="50px" />
 
     <Button
-        android:id="@+id/+"
+        android:id="@+id/addButton"
         android:layout_width="match_parent"
-        android:layout_height="105dp"
+        android:layout_height="70dp"
         android:layout_marginLeft="400px"
         android:layout_marginRight="400px"
         android:background="#009688"
-        android:text="+" />
+        android:text="+"
+        android:textSize="36sp" />
 </LinearLayout>
