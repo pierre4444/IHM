@@ -12,7 +12,7 @@ import android.widget.EditText;
 
 import com.example.ardoise.model.Depense;
 
-public class AjoutEvenementActivity extends AppCompatActivity {
+public class AjoutDepenseActivity extends AppCompatActivity {
 
     private EditText titreArea;
     private EditText montantArea;
@@ -22,7 +22,7 @@ public class AjoutEvenementActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ajout_evenement);
+        setContentView(R.layout.activity_ajout_depense);
 
         titreArea = (EditText) findViewById(R.id.titreEvent);
         montantArea = (EditText) findViewById(R.id.montant);
@@ -51,13 +51,11 @@ public class AjoutEvenementActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(AjoutEvenementActivity.this, ListeEvenementsActivity.class);
+                Intent intent = new Intent(AjoutDepenseActivity.this, ListeDepensesActivity.class);
 
                 Depense depense = new Depense(titreArea.getText().toString(), Integer.parseInt(montantArea.getText().toString()));
                 intent.putExtra("depense", depense); // la clé, la valeur
                 startActivity(intent);
-
-
         }
 
     });

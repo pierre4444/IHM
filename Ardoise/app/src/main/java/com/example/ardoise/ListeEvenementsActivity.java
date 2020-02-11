@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -20,11 +21,7 @@ public class ListeEvenementsActivity extends AppCompatActivity {
     private ListView listeEvenements;
     private Button boutonAdd;
     private String[] prenoms = new String[]{
-            "Antoine", "Benoit", "Cyril", "David", "Eloise", "Florent",
-            "Gerard", "Hugo", "Ingrid", "Jonathan", "Kevin", "Logan",
-            "Mathieu", "Noemie", "Olivia", "Philippe", "Quentin", "Romain",
-            "Sophie", "Tristan", "Ulric", "Vincent", "Willy", "Xavier",
-            "Yann", "Zoé"
+            "Antoine", "Benoit"
     };
     private List<Depense> listeDepenses = new ArrayList<>();
 
@@ -33,20 +30,28 @@ public class ListeEvenementsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_liste_evenements);
 
+        //listeEvenements = (ListView) findViewById(R.id.liste);
         boutonAdd = (Button) findViewById(R.id.addButton);
-        listeEvenements = (ListView) findViewById(R.id.liste);
 
-        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(ListeEvenementsActivity.this,
+        /*final ArrayAdapter<String> adapter = new ArrayAdapter<String>(ListeEvenementsActivity.this,
                 android.R.layout.simple_list_item_1, prenoms);
         listeEvenements.setAdapter(adapter);
-
-        Intent intent = getIntent();
+*/
+        /*Intent intent = getIntent();
         if (intent != null){
             Depense depense = intent.getParcelableExtra("depense");
             if (depense != null){
                 listeDepenses.add(depense);
             }
-        }
+        }*/
+
+/*        boutonAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(ListeEvenementsActivity.this, AjoutDepenseActivity.class);
+                startActivity(i);
+            }
+        });*/
 
     }
 

@@ -9,8 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AjoutEvenementActivity"></activity>
+        <activity android:name=".EquilibreActivity"></activity>
+        <activity android:name=".ListeDepensesActivity" />
         <activity android:name=".ListeEvenementsActivity" />
+        <activity android:name=".AjoutDepenseActivity"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

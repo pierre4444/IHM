@@ -2,6 +2,7 @@ package com.example.ardoise;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -48,7 +49,8 @@ public class MainActivity extends AppCompatActivity {
         mConnexionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(MainActivity.this, ListeDepensesActivity.class);
+                startActivity(intent);
             }
         });
     }

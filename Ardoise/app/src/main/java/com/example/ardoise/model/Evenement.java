@@ -12,6 +12,7 @@ public class Evenement {
     private List<Depense> listDepenses;
 
 
+    private Double soldeTotal;
 
     public String getNom() {
         return nom;
@@ -44,4 +45,13 @@ public class Evenement {
     public void setListDepenses(List<Depense> listDepenses) {
         this.listDepenses = listDepenses;
     }
+
+    public Double getSoldeTotal() {
+        return soldeTotal;
+    }
+
+    public void setSoldeTotal(Double soldeTotal) {
+        this.soldeTotal = soldeTotal;
+    }
+
 }
