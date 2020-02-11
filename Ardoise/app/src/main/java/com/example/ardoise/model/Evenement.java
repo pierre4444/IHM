@@ -11,11 +11,7 @@ public class Evenement {
     private List<Utilisateur> listParticipants;
     private List<Depense> listDepenses;
 
-    public Evenement(String nom, int nbParticipants, List<Utilisateur> listParticipants) {
-        this.nom = nom;
-        this.nbParticipants = nbParticipants;
-        this.listParticipants = listParticipants;
-    }
+
 
     public String getNom() {
         return nom;
