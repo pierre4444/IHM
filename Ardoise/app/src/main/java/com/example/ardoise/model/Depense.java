@@ -1,23 +1,41 @@
 package com.example.ardoise.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.List;
 
 /**
  * Created by Chloe JOULIN.
  */
-public class Depense {
+public class Depense implements Parcelable{
 
     private String titre;
-    private double montant;
+    private int montant;
     private Utilisateur payeur;
     private List<Utilisateur> beneficiaires;
 
-    public Depense(String titre, double montant, Utilisateur payeur, List<Utilisateur> beneficiaires) {
+    public Depense(String titre, int montant) {
         this.titre = titre;
         this.montant = montant;
-        this.payeur = payeur;
-        this.beneficiaires = beneficiaires;
     }
+
+    public Depense(Parcel in) {
+        titre = in.readString();
+        montant = in.readInt();
+    }
+
+    public static final Creator<Depense> CREATOR = new Creator<Depense>() {
+        @Override
+        public Depense createFromParcel(Parcel in) {
+            return new Depense(in);
+        }
+
+        @Override
+        public Depense[] newArray(int size) {
+            return new Depense[size];
+        }
+    };
 
     public String getTitre() {
         return titre;
@@ -31,7 +49,7 @@ public class Depense {
         return montant;
     }
 
-    public void setMontant(double montant) {
+    public void setMontant(int montant) {
         this.montant = montant;
     }
 
@@ -49,5 +67,16 @@ public class Depense {
 
     public void setBeneficiaires(List<Utilisateur> beneficiaires) {
         this.beneficiaires = beneficiaires;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int flags) {
+        parcel.writeString(titre);
+        parcel.writeInt(montant);
     }
 }
