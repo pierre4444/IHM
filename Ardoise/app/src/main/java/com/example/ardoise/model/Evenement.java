@@ -12,13 +12,8 @@ public class Evenement {
     private List<Depense> listDepenses;
 
 
-    private Double soldeTotal;
 
-    public Evenement(String nom, int nbParticipants, List<Utilisateur> listParticipants) {
-        this.nom = nom;
-        this.nbParticipants = nbParticipants;
-        this.listParticipants = listParticipants;
-    }
+    private Double soldeTotal;
 
     public String getNom() {
         return nom;
