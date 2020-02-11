@@ -10,6 +10,11 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.ardoise.model.Depense;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class ListeDepensesActivity extends AppCompatActivity {
 
 
@@ -17,13 +22,8 @@ public class ListeDepensesActivity extends AppCompatActivity {
     private Button mAddDepenseButton;
     private TextView mSoldeTotalText;
     private Button mEquilibreButton;
-    private String[] prenoms = new String[]{
-            "Antoine", "Benoit", "Cyril", "David", "Eloise", "Florent",
-            "Gerard", "Hugo", "Ingrid", "Jonathan", "Kevin", "Logan",
-            "Mathieu", "Noemie", "Olivia", "Philippe", "Quentin", "Romain",
-            "Sophie", "Tristan", "Ulric", "Vincent", "Willy", "Xavier",
-            "Yann", "Zoé"
-    };
+    private ArrayList<Depense> listeDepenses = new ArrayList<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,11 +36,16 @@ public class ListeDepensesActivity extends AppCompatActivity {
         mSoldeTotalText = (TextView) findViewById(R.id.solde_total_text);
         mEquilibreButton = (Button) findViewById(R.id.equilibre_button);
 
-
-        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(ListeDepensesActivity.this,
-                android.R.layout.simple_list_item_1, prenoms);
+        DepensesAdapter adapter = new DepensesAdapter(this, listeDepenses);
         mListeDepenses.setAdapter(adapter);
 
+        mAddDepenseButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent ajoutActivity = new Intent(ListeDepensesActivity.this, AjoutDepenseActivity.class);
+                startActivity(ajoutActivity);
+            }
+        });
 
         mEquilibreButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,5 +54,15 @@ public class ListeDepensesActivity extends AppCompatActivity {
                 startActivity(equilibreActivity);
             }
         });
+
+        Intent intent = getIntent();
+        if (intent != null){
+            Depense depense = intent.getParcelableExtra("depense");
+            if (depense != null){
+                listeDepenses.add(depense);
+                System.out.println(depense.getTitre());
+            }
+        }
+
     }
 }

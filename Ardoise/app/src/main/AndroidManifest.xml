@@ -12,6 +12,7 @@
         <activity android:name=".EquilibreActivity"></activity>
         <activity android:name=".ListeDepensesActivity" />
         <activity android:name=".ListeEvenementsActivity" />
+        <activity android:name=".AjoutDepenseActivity"></activity>
         <activity android:name=".AjoutEvenementActivity"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>

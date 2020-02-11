@@ -49,9 +49,8 @@ public class MainActivity extends AppCompatActivity {
         mConnexionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent listeEvenementsActivity = new Intent(MainActivity.this, ListeDepensesActivity.class);
-                startActivity(listeEvenementsActivity);
-
+                Intent intent = new Intent(MainActivity.this, ListeDepensesActivity.class);
+                startActivity(intent);
             }
         });
     }

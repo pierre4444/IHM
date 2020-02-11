@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".AjoutEvenementActivity">
+    tools:context=".AjoutDepenseActivity">
 
 
     <EditText
@@ -14,7 +14,7 @@
         android:layout_marginTop="50px"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Titre de l'evenement" />
+        android:hint="Titre de l'evenement" />
 
     <EditText
         android:id="@+id/montant"
@@ -22,7 +22,15 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name" />
+        android:hint="Montant en €" />
+
+    <EditText
+        android:id="@+id/date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="date"
+        tools:hint="Date" />
 
     <Button
         android:id="@+id/validerButton"

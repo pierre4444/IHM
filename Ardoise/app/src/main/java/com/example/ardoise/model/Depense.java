@@ -45,7 +45,7 @@ public class Depense implements Parcelable{
         this.titre = titre;
     }
 
-    public double getMontant() {
+    public int getMontant() {
         return montant;
     }
 
