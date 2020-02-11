@@ -1,6 +1,17 @@
 <resources>
+
+    <!-- Strings globaux -->
     <string name="app_name">Ardoise</string>
+
+
+    <!-- Strings accueil -->
     <string name="hello_text">Bienvenue sur votre application de gestion d\'ardoise.\n\n Veuillez entrer votre nom.</string>
     <string name="connexion_text">Name</string>
     <string name="connexion_button">Connexion</string>
+
+
+    <!-- Strings liste dépenses -->
+    <string name="add_depenses_text">Ajouter une dépense</string>
+    <string name="solde_total_text">Solde total : </string>
+    <string name="equilibre_button_text">Equilibre</string>
 </resources>
