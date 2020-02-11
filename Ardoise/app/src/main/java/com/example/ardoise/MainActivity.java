@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         mConnexionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, ListeDepensesActivity.class);
+                Intent intent = new Intent(MainActivity.this, ListeEvenementsActivity.class);
                 startActivity(intent);
             }
         });

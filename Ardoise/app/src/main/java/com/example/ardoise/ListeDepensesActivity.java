@@ -11,6 +11,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.ardoise.model.Depense;
+import com.example.ardoise.model.Evenement;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,14 +23,13 @@ public class ListeDepensesActivity extends AppCompatActivity {
     private Button mAddDepenseButton;
     private TextView mSoldeTotalText;
     private Button mEquilibreButton;
+    private Evenement evenement;
     private ArrayList<Depense> listeDepenses = new ArrayList<>();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_liste_depenses);
-
 
         mListeDepenses = (ListView) findViewById(R.id.liste_depenses);
         mAddDepenseButton = (Button) findViewById(R.id.add_depenses_button);
@@ -43,6 +43,7 @@ public class ListeDepensesActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent ajoutActivity = new Intent(ListeDepensesActivity.this, AjoutDepenseActivity.class);
+                ajoutActivity.putExtra("evenement", evenement); // la clé, la valeur
                 startActivity(ajoutActivity);
             }
         });
@@ -57,11 +58,7 @@ public class ListeDepensesActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         if (intent != null){
-            Depense depense = intent.getParcelableExtra("depense");
-            if (depense != null){
-                listeDepenses.add(depense);
-                System.out.println(depense.getTitre());
-            }
+            evenement = intent.getParcelableExtra("evenement");
         }
 
     }

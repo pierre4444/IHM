@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.ardoise.model.Depense;
+import com.example.ardoise.model.Evenement;
 
 public class AjoutDepenseActivity extends AppCompatActivity {
 
@@ -18,6 +19,7 @@ public class AjoutDepenseActivity extends AppCompatActivity {
     private EditText montantArea;
     private Button boutonValider;
     private Depense depense;
+    private Evenement evenement;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +47,14 @@ public class AjoutDepenseActivity extends AppCompatActivity {
             public void afterTextChanged(Editable s) {
 
             }
+
+
         });
+
+        Intent i = getIntent();
+        if (i != null){
+            evenement = i.getParcelableExtra("evenement");
+        }
 
         boutonValider.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,7 +63,9 @@ public class AjoutDepenseActivity extends AppCompatActivity {
                 Intent intent = new Intent(AjoutDepenseActivity.this, ListeDepensesActivity.class);
 
                 Depense depense = new Depense(titreArea.getText().toString(), Integer.parseInt(montantArea.getText().toString()));
-                intent.putExtra("depense", depense); // la clé, la valeur
+                evenement.addDepense(depense);
+
+                intent.putExtra("evenement", evenement); // la clé, la valeur
                 startActivity(intent);
         }
 

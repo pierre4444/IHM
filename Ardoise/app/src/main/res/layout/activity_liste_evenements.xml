@@ -7,16 +7,45 @@
     android:orientation="vertical"
     tools:context=".ListeEvenementsActivity">
 
+    <EditText
+        android:id="@+id/titre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Titre de l'evenement" />
+
+
+            <EditText
+                android:id="@+id/participant1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Nom du premier participant"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/participant2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Nom du deuxieme participant"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/participant3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Nom du troisieme participant"
+                android:inputType="textPersonName" />
+
 
 
     <Button
-        android:id="@+id/addButton"
+        android:id="@+id/boutonValider"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_marginLeft="400px"
-        android:layout_marginRight="400px"
-        android:background="#009688"
-        android:text="+"
-        android:textSize="36sp" />
+        android:layout_height="128dp"
+        android:text="Valider" />
 
 </LinearLayout>
