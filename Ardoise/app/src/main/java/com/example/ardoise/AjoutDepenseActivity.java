@@ -41,8 +41,6 @@ public class AjoutDepenseActivity extends AppCompatActivity implements AdapterVi
     private Utilisateur payeur;
     private Date dateDepense;
 
-    // TODO : tant que tous les champs de ne sont pas remplis on ne peut pas valider
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,30 +57,77 @@ public class AjoutDepenseActivity extends AppCompatActivity implements AdapterVi
         datePicker = (DatePicker) findViewById(R.id.date);
 
 
+        //désactivation du bouton tant que les champs ne sont pas tous remplis
+        boutonValider.setEnabled(false);
+
+        //par defaut les switchs des beneficiaires de la depense sont activés: tous les mambres du groupe sont beneficiaires
+        participant1.setChecked(true);
+        participant2.setChecked(true);
+        participant3.setChecked(true);
 
         //recuperation de l'evenement de l'activite precedente
         Intent i = getIntent();
         if (i != null){
             evenement = i.getParcelableExtra("evenement");
-            System.out.println(evenement.toString());
         }
 
         //liste des noms des participants :
         listNoms = new ArrayList<>();
         for (int x=0;x<3;x++) {
-            System.out.println(x);
-            System.out.println(listNoms.add(evenement.getListParticipants().get(x).getNom()));
+            listNoms.add(evenement.getListParticipants().get(x).getNom());
         }
-
-
 
         //affichage du menu déroulant des payeurs potentiels
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, listNoms);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         menuDeroulantPayeur.setAdapter(adapter);
+        //par defaut le payeur est le premier de la liste des participants au groupe
 
         menuDeroulantPayeur.setOnItemSelectedListener(this);
 
+        //si aucun des EditText n'est vide, on active le bouton
+        titreArea.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (titreArea.getText().length()!=0 && montantArea.getText().length()!=0){
+                    boutonValider.setEnabled(true);
+                }
+                else{
+                    boutonValider.setEnabled(false);
+                }
+            }
+        });
+        montantArea.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (titreArea.getText().length()!=0 && montantArea.getText().length()!=0){
+                    boutonValider.setEnabled(true);
+                }
+                else{
+                    boutonValider.setEnabled(false);
+                }
+            }
+        });
 
         boutonValider.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -125,9 +170,7 @@ public class AjoutDepenseActivity extends AppCompatActivity implements AdapterVi
 
         //afficher le nom des participants sur les switchs
         this.displayParticipants(evenement);
-
     }
-
 
     //méthode permettant d'afficher les noms des participants à l'evenement
     private void displayParticipants(final Evenement evenement) {
@@ -136,15 +179,14 @@ public class AjoutDepenseActivity extends AppCompatActivity implements AdapterVi
         participant3.setText(listNoms.get(2));
     }
 
+    //quand on appuie sur un des elements du menu deroulants des payeur potentiels
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         payeur = evenement.getListParticipants().get(position);
-        System.out.println("salut");
     }
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
-
 }
