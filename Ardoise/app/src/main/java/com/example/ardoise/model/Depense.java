@@ -22,9 +22,12 @@ public class Depense implements Parcelable{
         this.beneficiaires = beneficiaires;
     }
 
-    public Depense(Parcel in) {
+
+    protected Depense(Parcel in) {
         titre = in.readString();
         montant = in.readInt();
+        payeur = in.readParcelable(Utilisateur.class.getClassLoader());
+        beneficiaires = in.createTypedArrayList(Utilisateur.CREATOR);
     }
 
     public static final Creator<Depense> CREATOR = new Creator<Depense>() {
@@ -80,5 +83,7 @@ public class Depense implements Parcelable{
     public void writeToParcel(Parcel parcel, int flags) {
         parcel.writeString(titre);
         parcel.writeInt(montant);
+        parcel.writeParcelable(payeur, flags);
+        parcel.writeTypedList(beneficiaires);
     }
 }
