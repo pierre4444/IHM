@@ -3,7 +3,6 @@ package com.example.ardoise.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -13,23 +12,14 @@ public class Depense implements Parcelable{
 
     private String titre;
     private int montant;
-    private Long date;
     private Utilisateur payeur;
     private List<Utilisateur> beneficiaires;
 
-    @Override
-    public String toString() {
-        return "Depense{" +
-                "titre='" + titre + '\'' +
-                ", montant=" + montant +
-                ", payeur=" + payeur +
-                ", beneficiaires=" + beneficiaires +
-                '}';
-    }
-
-    public Depense(String titre, int montant) {
+    public Depense(String titre, int montant, Utilisateur payeur, List<Utilisateur> beneficiaires) {
         this.titre = titre;
         this.montant = montant;
+        this.payeur = payeur;
+        this.beneficiaires = beneficiaires;
     }
 
     public Depense(Parcel in) {
@@ -81,14 +71,6 @@ public class Depense implements Parcelable{
         this.beneficiaires = beneficiaires;
     }
 
-    public Long getDate() {
-        return date;
-    }
-
-    public void setDate(Long date) {
-        this.date = date;
-    }
-
     @Override
     public int describeContents() {
         return 0;
@@ -98,10 +80,5 @@ public class Depense implements Parcelable{
     public void writeToParcel(Parcel parcel, int flags) {
         parcel.writeString(titre);
         parcel.writeInt(montant);
-    }
-
-
-    public String toString(String date) {
-        return ""+ montant + " €.";
     }
 }
