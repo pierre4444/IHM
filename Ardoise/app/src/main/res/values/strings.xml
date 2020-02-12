@@ -14,4 +14,24 @@
     <string name="add_depenses_text">Ajouter une dépense</string>
     <string name="solde_total_text">Solde total : </string>
     <string name="equilibre_button_text">Equilibre</string>
+
+    <!-- Strings ajout dépense -->
+    <string name="title_add_depenses_text">Titre de le dépense</string>
+    <string name="montant_text">Montant en €</string>
+    <string name="payeur_text">Par qui ?</string>
+    <string name="to_whom_text">Pour qui ?</string>
+    <string name="validate_text">Valider</string>
+
+
+    <!-- Strings evenement -->
+    <string name="event_title_text">Titre de l\'évènement</string>
+    <string name="premier_part_text">1er participant</string>
+    <string name="second_part_text">2eme participant</string>
+    <string name="troisieme_part_text">3eme participant</string>
+
+    <!-- Strings item depense -->
+    <string name="depense_title_text">Titre</string>
+    <string name="montant_depense_text">Montant</string>
+    <string name="text_depense_item">Payé par :</string>
+    <string name="payeur_depense_text">Payeur</string>
 </resources>

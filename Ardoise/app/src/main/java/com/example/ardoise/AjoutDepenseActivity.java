@@ -1,13 +1,9 @@
 package com.example.ardoise;
 
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -24,6 +20,10 @@ import com.example.ardoise.model.Utilisateur;
 
 import java.util.ArrayList;
 import java.util.Date;
+
+/**
+ * Created by Alexis JEAN.
+ */
 
 public class AjoutDepenseActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 

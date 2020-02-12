@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Titre de l'evenement"
+        android:hint="@string/event_title_text"
         android:inputType="textPersonName"
         android:textSize="24sp" />
 
@@ -31,7 +31,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="2eme participant"
+        android:hint="@string/second_part_text"
         android:inputType="textPersonName" />
 
     <EditText
@@ -39,7 +39,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="3eme participant"
+        android:hint="@string/troisieme_part_text"
         android:inputType="textPersonName" />
 
 

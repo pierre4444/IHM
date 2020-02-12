@@ -10,6 +10,11 @@ import android.widget.TextView;
 
 import com.example.ardoise.model.Evenement;
 
+
+/**
+ * Created by Alexis JEAN.
+ */
+
 public class EquilibreActivity extends AppCompatActivity {
 
     private TextView mEquilibreText;

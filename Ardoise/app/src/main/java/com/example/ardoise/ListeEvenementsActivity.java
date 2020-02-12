@@ -19,6 +19,11 @@ import com.example.ardoise.model.Utilisateur;
 import java.util.ArrayList;
 import java.util.List;
 
+
+/**
+ * Created by Alexis JEAN.
+ */
+
 public class ListeEvenementsActivity extends AppCompatActivity {
 
     private EditText titreEdit;

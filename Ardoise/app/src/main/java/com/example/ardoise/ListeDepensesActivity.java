@@ -16,6 +16,11 @@ import com.example.ardoise.model.Evenement;
 import java.util.ArrayList;
 import java.util.List;
 
+
+/**
+ * Created by Alexis JEAN.
+ */
+
 public class ListeDepensesActivity extends AppCompatActivity {
 
 
