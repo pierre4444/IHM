@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".AjoutDepenseActivity">
+    tools:context=".AjoutDepenseActivity"
+    android:layout_margin="10dp">
 
 
     <EditText
@@ -71,5 +72,6 @@
         android:id="@+id/validerButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Valider" />
+        android:text="Valider"
+        android:layout_margin="10dp"/>
 </LinearLayout>

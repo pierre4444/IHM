@@ -5,47 +5,49 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ListeEvenementsActivity">
+    tools:context=".ListeEvenementsActivity"
+    android:layout_margin="10dp">
 
     <EditText
         android:id="@+id/titre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:hint="Titre de l'evenement"
         android:inputType="textPersonName"
-        android:hint="Titre de l'evenement" />
+        android:textSize="24sp" />
 
 
-            <EditText
-                android:id="@+id/participant1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Nom du premier participant"
-                android:inputType="textPersonName" />
+    <EditText
+        android:id="@+id/participant1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="1er participant"
+        android:inputType="textPersonName" />
 
-            <EditText
-                android:id="@+id/participant2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Nom du deuxieme participant"
-                android:inputType="textPersonName" />
+    <EditText
+        android:id="@+id/participant2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="2eme participant"
+        android:inputType="textPersonName" />
 
-            <EditText
-                android:id="@+id/participant3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Nom du troisieme participant"
-                android:inputType="textPersonName" />
-
+    <EditText
+        android:id="@+id/participant3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="3eme participant"
+        android:inputType="textPersonName" />
 
 
     <Button
         android:id="@+id/boutonValider"
         android:layout_width="match_parent"
-        android:layout_height="128dp"
-        android:text="Valider" />
+        android:layout_height="wrap_content"
+        android:text="Valider"
+        android:layout_marginVertical="10dp"/>
 
 </LinearLayout>
