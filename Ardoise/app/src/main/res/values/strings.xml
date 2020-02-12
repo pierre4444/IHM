@@ -13,7 +13,7 @@
     <!-- Strings liste dépenses -->
     <string name="add_depenses_text">Ajouter une dépense</string>
     <string name="solde_total_text">Solde total : </string>
-    <string name="equilibre_button_text">Equilibre</string>
+    <string name="equilibre_button_text">EQUILIBRE</string>
 
     <!-- Strings ajout dépense -->
     <string name="title_add_depenses_text">Titre de le dépense</string>
@@ -34,4 +34,10 @@
     <string name="montant_depense_text">Montant</string>
     <string name="text_depense_item">Payé par :</string>
     <string name="payeur_depense_text">Payeur</string>
+
+    <!-- Strings item dette -->
+    <string name="dette_title_text">Titre</string>
+    <string name="montant_dette_text">Montant</string>
+    <string name="text_dette_item">Dette de :</string>
+    <string name="creancier_dette_text">Envers :</string>
 </resources>

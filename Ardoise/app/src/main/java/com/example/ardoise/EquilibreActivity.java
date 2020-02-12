@@ -8,7 +8,11 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.ardoise.model.Depense;
+import com.example.ardoise.model.Dette;
 import com.example.ardoise.model.Evenement;
+
+import java.util.ArrayList;
 
 
 /**
@@ -19,14 +23,11 @@ public class EquilibreActivity extends AppCompatActivity {
 
     private TextView mEquilibreText;
     private ListView mEquilibreList;
-    private String[] prenoms = new String[]{
-            "Antoine", "Benoit", "Cyril", "David", "Eloise", "Florent",
-            "Gerard", "Hugo", "Ingrid", "Jonathan", "Kevin", "Logan",
-            "Mathieu", "Noemie", "Olivia", "Philippe", "Quentin", "Romain",
-            "Sophie", "Tristan", "Ulric", "Vincent", "Willy", "Xavier",
-            "Yann", "Zoé"
-    };
+
     private Evenement evenement;
+    private ArrayList<Dette> listeDettes;
+
+    private Dette exempleDette;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,14 +37,23 @@ public class EquilibreActivity extends AppCompatActivity {
         mEquilibreText = (TextView) findViewById(R.id.equilibre_text);
         mEquilibreList = (ListView) findViewById(R.id.equilibre_liste);
 
+
         //recuperation de l'evenement de l'activite precedente
         Intent i = getIntent();
         if (i != null){
             evenement = i.getParcelableExtra("evenement");
         }
 
-        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(EquilibreActivity.this,
-                android.R.layout.simple_list_item_1, prenoms);
+
+        exempleDette = new Dette("Dette", 50, evenement.getListParticipants().get(1),evenement.getListParticipants().get(2));
+        listeDettes=new ArrayList<Dette>();
+        this.listeDettes.add(exempleDette);
+        exempleDette = new Dette("Seconde Dette", 100, evenement.getListParticipants().get(0),evenement.getListParticipants().get(2));
+        this.listeDettes.add(exempleDette);
+        //affichage des dépenses dans une liste
+        DetteAdapter adapter = new DetteAdapter(this, listeDettes);
         mEquilibreList.setAdapter(adapter);
+
+
     }
 }
