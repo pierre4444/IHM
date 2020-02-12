@@ -79,18 +79,5 @@ public class ListeDepensesActivity extends AppCompatActivity {
             }
         });
 
-
-        /*if (!evenement.getListDepenses().isEmpty()) {
-            Intent intents = getIntent();
-            if (intents != null) {
-                Depense depense = intents.getParcelableExtra("depense");
-                if (depense != null) {
-                    listeDepenses.add(depense);
-                    System.out.println(depense.getTitre());
-                }
-            }
-
-
-        }*/
     }
 }

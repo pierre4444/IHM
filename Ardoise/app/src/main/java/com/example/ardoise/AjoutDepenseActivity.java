@@ -147,10 +147,13 @@ public class AjoutDepenseActivity extends AppCompatActivity implements AdapterVi
                     beneficiaires.add(evenement.getListParticipants().get(2));
                 }
 
-                dateDepense=new Date(datePicker.getYear(), datePicker.getMonth(), datePicker.getDayOfMonth());
+
+                //mise à jour du solde du payeur de la depense
+                updateSoldePayeur();
 
                 Depense depense = new Depense(titreArea.getText().toString(), Integer.parseInt(montantArea.getText().toString()), payeur, beneficiaires);
 
+                dateDepense = new Date(datePicker.getYear(), datePicker.getMonth(), datePicker.getDayOfMonth());
                 depense.setDateDepense(dateDepense);
 
                 evenement.addDepense(depense);
@@ -188,5 +191,9 @@ public class AjoutDepenseActivity extends AppCompatActivity implements AdapterVi
 
     private void updateSoldeTotal(){
         evenement.setSoldeTotal(evenement.getSoldeTotal() + Double.parseDouble(montantArea.getText().toString()));
+    }
+
+    private void updateSoldePayeur(){
+        payeur.setSoldeTotal(payeur.getSoldeTotal() + Double.parseDouble(montantArea.getText().toString()));
     }
 }

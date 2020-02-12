@@ -24,7 +24,6 @@ public class Depense implements Parcelable{
         this.beneficiaires = beneficiaires;
     }
 
-
     protected Depense(Parcel in) {
         titre = in.readString();
         montant = in.readInt();
