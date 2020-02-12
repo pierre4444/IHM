@@ -4,7 +4,6 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by Chloe JOULIN.
@@ -15,9 +14,10 @@ public class Evenement implements Parcelable {
     private ArrayList<Depense> listDepenses;
     private double soldeTotal;
 
-    public Evenement(String nom, ArrayList<Utilisateur> listParticipants) {
+    public Evenement(String nom, ArrayList<Utilisateur> listParticipants, ArrayList<Depense> listDepenses) {
         this.nom = nom;
         this.listParticipants = listParticipants;
+        this.listDepenses = listDepenses;
     }
 
     public Evenement(Parcel in) {

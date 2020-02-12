@@ -2,10 +2,13 @@ package com.example.ardoise;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.example.ardoise.model.Evenement;
 
 public class EquilibreActivity extends AppCompatActivity {
 
@@ -18,6 +21,7 @@ public class EquilibreActivity extends AppCompatActivity {
             "Sophie", "Tristan", "Ulric", "Vincent", "Willy", "Xavier",
             "Yann", "Zoé"
     };
+    private Evenement evenement;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +30,12 @@ public class EquilibreActivity extends AppCompatActivity {
 
         mEquilibreText = (TextView) findViewById(R.id.equilibre_text);
         mEquilibreList = (ListView) findViewById(R.id.equilibre_liste);
+
+        //recuperation de l'evenement de l'activite precedente
+        Intent i = getIntent();
+        if (i != null){
+            evenement = i.getParcelableExtra("evenement");
+        }
 
         final ArrayAdapter<String> adapter = new ArrayAdapter<String>(EquilibreActivity.this,
                 android.R.layout.simple_list_item_1, prenoms);

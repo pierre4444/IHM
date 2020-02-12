@@ -26,8 +26,6 @@ public class ListeEvenementsActivity extends AppCompatActivity {
     private EditText participant2;
     private EditText participant3;
     private Button boutonAdd;
-
-
     private List<Depense> listeDepenses = new ArrayList<>();
 
     @Override
@@ -56,13 +54,19 @@ public class ListeEvenementsActivity extends AppCompatActivity {
                 listParticipants.add(u2);
                 listParticipants.add(u3);
 
-                Evenement evenement = new Evenement(titreEdit.getText().toString(), listParticipants);
+                ArrayList<Depense> listeDepenses = new ArrayList<>();
+
+                Evenement evenement = new Evenement(titreEdit.getText().toString(), listParticipants, listeDepenses);
+                System.out.println(evenement.toString());
                 intent.putExtra("evenement", evenement); // la clé, la valeur
                 startActivity(intent);
             }
 
         });
 
+
     }
+
+
 
 }

@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 import com.example.ardoise.model.Depense;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 /**
@@ -30,9 +32,12 @@ public class DepensesAdapter extends ArrayAdapter<Depense> {
         // Lookup view for data population
         TextView tvName = (TextView) convertView.findViewById(R.id.tvTitre);
         TextView tvHome = (TextView) convertView.findViewById(R.id.tvMontant);
+        TextView tvPayeur = (TextView) convertView.findViewById(R.id.tvPayeur);
         // Populate the data into the template view using the data object
         tvName.setText(depense.getTitre());
         tvHome.setText(Integer.toString(depense.getMontant()));
+        //tvPayeur.setText(depense.getPayeur().getNom());
+
         // Return the completed view to render on screen
         return convertView;
     }

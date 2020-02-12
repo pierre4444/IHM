@@ -15,9 +15,11 @@ public class Depense implements Parcelable{
     private Utilisateur payeur;
     private List<Utilisateur> beneficiaires;
 
-    public Depense(String titre, int montant) {
+    public Depense(String titre, int montant, Utilisateur payeur, List<Utilisateur> beneficiaires) {
         this.titre = titre;
         this.montant = montant;
+        this.payeur = payeur;
+        this.beneficiaires = beneficiaires;
     }
 
     public Depense(Parcel in) {
