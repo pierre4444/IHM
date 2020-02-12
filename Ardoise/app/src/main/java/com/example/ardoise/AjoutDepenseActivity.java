@@ -1,8 +1,10 @@
 package com.example.ardoise;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -10,6 +12,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Switch;
@@ -20,11 +23,13 @@ import com.example.ardoise.model.Evenement;
 import com.example.ardoise.model.Utilisateur;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class AjoutDepenseActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private EditText titreArea;
     private EditText montantArea;
+    private DatePicker datePicker;
     private Button boutonValider;
     private Evenement evenement;
     private Switch participant1;
@@ -34,6 +39,7 @@ public class AjoutDepenseActivity extends AppCompatActivity implements AdapterVi
     private Spinner menuDeroulantPayeur;
     private ArrayList<String> listNoms;
     private Utilisateur payeur;
+    private Date dateDepense;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +54,8 @@ public class AjoutDepenseActivity extends AppCompatActivity implements AdapterVi
         participant3 = (Switch) findViewById(R.id.user3);
         pourQuiText = (TextView) findViewById(R.id.pourQui);
         menuDeroulantPayeur = (Spinner) findViewById(R.id.payeurList);
+        datePicker = (DatePicker) findViewById(R.id.date);
+
 
         //désactivation du bouton tant que les champs ne sont pas tous remplis
         boutonValider.setEnabled(false);
@@ -141,9 +149,15 @@ public class AjoutDepenseActivity extends AppCompatActivity implements AdapterVi
                     beneficiaires.add(evenement.getListParticipants().get(2));
                 }
 
+
+
+                dateDepense=new Date(datePicker.getYear(), datePicker.getMonth(), datePicker.getDayOfMonth());
+
                 System.out.println(payeur.getNom());
 
                 Depense depense = new Depense(titreArea.getText().toString(), Integer.parseInt(montantArea.getText().toString()), payeur, beneficiaires);
+
+                depense.setDateDepense(dateDepense);
 
                 evenement.addDepense(depense);
 

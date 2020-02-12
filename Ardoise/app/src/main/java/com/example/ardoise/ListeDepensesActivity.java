@@ -78,8 +78,19 @@ public class ListeDepensesActivity extends AppCompatActivity {
 
         if (!evenement.getListDepenses().isEmpty()) {
             System.out.println(evenement.toString());
+
+            mSoldeTotalText.setText(mSoldeTotalText.getText() + " 0€");
+
+            Intent intents = getIntent();
+            if (intents != null) {
+                Depense depense = intents.getParcelableExtra("depense");
+                if (depense != null) {
+                    listeDepenses.add(depense);
+                    System.out.println(depense.getTitre());
+                }
+            }
+
+
         }
-
-
     }
 }
