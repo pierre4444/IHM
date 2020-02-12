@@ -65,7 +65,6 @@ public class ListeEvenementsActivity extends AppCompatActivity {
                 }
             }
         });
-
         participant1.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -87,7 +86,6 @@ public class ListeEvenementsActivity extends AppCompatActivity {
                 }
             }
         });
-
         participant2.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -109,7 +107,6 @@ public class ListeEvenementsActivity extends AppCompatActivity {
                 }
             }
         });
-
         participant3.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
