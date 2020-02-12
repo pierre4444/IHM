@@ -39,6 +39,7 @@ public class AjoutDepenseActivity extends AppCompatActivity implements AdapterVi
     private ArrayList<String> listNoms;
     private Utilisateur payeur;
 
+    // TODO : tant que tous les champs de ne sont pas remplis on ne peut pas valider
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,23 +63,27 @@ public class AjoutDepenseActivity extends AppCompatActivity implements AdapterVi
         Intent i = getIntent();
         if (i != null){
             evenement = i.getParcelableExtra("evenement");
+            System.out.println(evenement.toString());
         }
 
         //liste des noms des participants :
         listNoms = new ArrayList<>();
         for (int x=0;x<3;x++) {
-            listNoms.add(evenement.getListParticipants().get(x).getNom());
+            System.out.println(x);
+            System.out.println(listNoms.add(evenement.getListParticipants().get(x).getNom()));
         }
+
 
         //affichage du menu déroulant des payeurs potentiels
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, listNoms);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         menuDeroulantPayeur.setAdapter(adapter);
 
+        menuDeroulantPayeur.setOnItemSelectedListener(this);
+
         boutonValider.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
 
                 //passage de l'activité AjoutDepense à l'activté ListeDepenses
                 Intent intent = new Intent(AjoutDepenseActivity.this, ListeDepensesActivity.class);
@@ -96,12 +101,11 @@ public class AjoutDepenseActivity extends AppCompatActivity implements AdapterVi
                     beneficiaires.add(evenement.getListParticipants().get(2));
                 }
 
+                System.out.println(payeur.getNom());
+
                 Depense depense = new Depense(titreArea.getText().toString(), Integer.parseInt(montantArea.getText().toString()), payeur, beneficiaires);
 
                 evenement.addDepense(depense);
-
-                System.out.println(evenement.getListDepenses().get(0).getBeneficiaires().get(0).getNom());
-
 
                 //envoie de l'evenement pendant le passage d'une activité à l'autre
                 intent.putExtra("evenement", evenement); // la clé, la valeur
@@ -126,6 +130,7 @@ public class AjoutDepenseActivity extends AppCompatActivity implements AdapterVi
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         payeur = evenement.getListParticipants().get(position);
+        System.out.println("salut");
     }
 
     @Override

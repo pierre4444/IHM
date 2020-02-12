@@ -35,8 +35,8 @@ public class DepensesAdapter extends ArrayAdapter<Depense> {
         TextView tvPayeur = (TextView) convertView.findViewById(R.id.tvPayeur);
         // Populate the data into the template view using the data object
         tvName.setText(depense.getTitre());
-        tvHome.setText(Integer.toString(depense.getMontant()));
-        //tvPayeur.setText(depense.getPayeur().getNom());
+        tvHome.setText(Integer.toString(depense.getMontant())+ "€");
+        tvPayeur.setText(depense.getPayeur().getNom());
 
         // Return the completed view to render on screen
         return convertView;

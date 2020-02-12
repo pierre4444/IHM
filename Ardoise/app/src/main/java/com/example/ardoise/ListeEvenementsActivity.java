@@ -28,6 +28,10 @@ public class ListeEvenementsActivity extends AppCompatActivity {
     private Button boutonAdd;
     private List<Depense> listeDepenses = new ArrayList<>();
 
+
+    // TODO : tant que tous les champs de ne sont pas remplis on ne peut pas valider
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -9,7 +9,9 @@
         android:id="@+id/tvTitre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Titre" />
+        android:text="Titre"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/tvMontant"
@@ -17,10 +19,25 @@
         android:layout_height="wrap_content"
         android:text="Montant" />
 
-    <TextView
-        android:id="@+id/tvPayeur"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Payeur" />
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textPaye"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Payé par :" />
+
+        <TextView
+            android:id="@+id/tvPayeur"
+            android:layout_width="195dp"
+            android:layout_height="wrap_content"
+            android:text="Payeur"
+            android:textStyle="bold" />
+
+    </LinearLayout>
 
 </LinearLayout>

@@ -99,6 +99,7 @@ public class Evenement implements Parcelable {
         parcel.writeString(nom);
         parcel.writeTypedList(listParticipants);
         parcel.writeTypedList(listDepenses);
+        parcel.writeDouble(soldeTotal);
     }
 
 

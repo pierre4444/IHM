@@ -5,8 +5,8 @@
 
 
     <!-- Strings accueil -->
-    <string name="hello_text">Bienvenue sur votre application de gestion d\'ardoise.\n\n Veuillez entrer votre nom.</string>
-    <string name="connexion_text">Name</string>
+    <string name="hello_text">Bienvenue sur votre application de gestion d\'ardoise.\n\n </string>
+    <string name="connexion_text">Veuillez entrer votre nom</string>
     <string name="connexion_button">Connexion</string>
 
 

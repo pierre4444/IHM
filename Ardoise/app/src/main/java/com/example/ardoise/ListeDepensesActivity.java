@@ -40,7 +40,7 @@ public class ListeDepensesActivity extends AppCompatActivity {
 
         //recuperation de l'evenement de l'activite precedente
         Intent intent = getIntent();
-        if (intent != null){
+        if (intent != null) {
             evenement = intent.getParcelableExtra("evenement");
             System.out.println(evenement.toString());
         }
@@ -83,17 +83,18 @@ public class ListeDepensesActivity extends AppCompatActivity {
         if (!evenement.getListDepenses().isEmpty()) {
             System.out.println(evenement.toString());
 
-        mSoldeTotalText.setText(mSoldeTotalText.getText() + " 0€");
+            mSoldeTotalText.setText(mSoldeTotalText.getText() + " 0€");
 
-        Intent intent = getIntent();
-        if (intent != null){
-            Depense depense = intent.getParcelableExtra("depense");
-            if (depense != null){
-                listeDepenses.add(depense);
-                System.out.println(depense.getTitre());
+            Intent intents = getIntent();
+            if (intents != null) {
+                Depense depense = intents.getParcelableExtra("depense");
+                if (depense != null) {
+                    listeDepenses.add(depense);
+                    System.out.println(depense.getTitre());
+                }
             }
+
+
         }
-
-
     }
 }
