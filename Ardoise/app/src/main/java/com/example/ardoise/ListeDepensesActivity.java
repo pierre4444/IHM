@@ -42,8 +42,8 @@ public class ListeDepensesActivity extends AppCompatActivity {
         mAddDepenseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent ajoutActivity = new Intent(ListeDepensesActivity.this, AjoutDepenseActivity.class);
-                startActivity(ajoutActivity);
+                Intent ajoutDepenseActivity = new Intent(ListeDepensesActivity.this, AjoutDepenseActivity.class);
+                startActivity(ajoutDepenseActivity);
             }
         });
 
@@ -54,6 +54,9 @@ public class ListeDepensesActivity extends AppCompatActivity {
                 startActivity(equilibreActivity);
             }
         });
+
+
+        mSoldeTotalText.setText(mSoldeTotalText.getText() + " 0€");
 
         Intent intent = getIntent();
         if (intent != null){

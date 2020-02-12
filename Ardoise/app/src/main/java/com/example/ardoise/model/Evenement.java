@@ -1,5 +1,6 @@
 package com.example.ardoise.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -54,5 +55,6 @@ public class Evenement {
     public void setSoldeTotal(Double soldeTotal) {
         this.soldeTotal = soldeTotal;
     }
+
 
 }

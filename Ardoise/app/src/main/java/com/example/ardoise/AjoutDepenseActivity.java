@@ -1,13 +1,16 @@
 package com.example.ardoise;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 
 import com.example.ardoise.model.Depense;
@@ -16,6 +19,7 @@ public class AjoutDepenseActivity extends AppCompatActivity {
 
     private EditText titreArea;
     private EditText montantArea;
+    private DatePicker datePicker;
     private Button boutonValider;
     private Depense depense;
 
@@ -27,6 +31,7 @@ public class AjoutDepenseActivity extends AppCompatActivity {
         titreArea = (EditText) findViewById(R.id.titreEvent);
         montantArea = (EditText) findViewById(R.id.montant);
         boutonValider = (Button) findViewById(R.id.validerButton);
+        datePicker = (DatePicker) findViewById(R.id.date);
 
         boutonValider.setEnabled(false);
 
@@ -48,6 +53,7 @@ public class AjoutDepenseActivity extends AppCompatActivity {
         });
 
         boutonValider.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View v) {
 
