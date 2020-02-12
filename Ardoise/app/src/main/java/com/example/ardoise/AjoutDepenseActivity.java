@@ -1,10 +1,8 @@
 package com.example.ardoise;
 
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -149,17 +147,16 @@ public class AjoutDepenseActivity extends AppCompatActivity implements AdapterVi
                     beneficiaires.add(evenement.getListParticipants().get(2));
                 }
 
-
-
                 dateDepense=new Date(datePicker.getYear(), datePicker.getMonth(), datePicker.getDayOfMonth());
-
-                System.out.println(payeur.getNom());
 
                 Depense depense = new Depense(titreArea.getText().toString(), Integer.parseInt(montantArea.getText().toString()), payeur, beneficiaires);
 
                 depense.setDateDepense(dateDepense);
 
                 evenement.addDepense(depense);
+
+                //mise à jour du solde total de l'evenement
+                updateSoldeTotal();
 
                 //envoie de l'evenement pendant le passage d'une activité à l'autre
                 intent.putExtra("evenement", evenement); // la clé, la valeur
@@ -187,6 +184,9 @@ public class AjoutDepenseActivity extends AppCompatActivity implements AdapterVi
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
+    }
 
+    private void updateSoldeTotal(){
+        evenement.setSoldeTotal(evenement.getSoldeTotal() + Double.parseDouble(montantArea.getText().toString()));
     }
 }
