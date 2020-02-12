@@ -3,6 +3,7 @@ package com.example.ardoise.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -13,6 +14,7 @@ public class Depense implements Parcelable{
     private String titre;
     private int montant;
     private Utilisateur payeur;
+    private Date dateDepense;
     private List<Utilisateur> beneficiaires;
 
     public Depense(String titre, int montant, Utilisateur payeur, List<Utilisateur> beneficiaires) {
@@ -72,6 +74,14 @@ public class Depense implements Parcelable{
 
     public void setBeneficiaires(List<Utilisateur> beneficiaires) {
         this.beneficiaires = beneficiaires;
+    }
+
+    public Date getDateDepense() {
+        return dateDepense;
+    }
+
+    public void setDateDepense(Date dateDepense) {
+        this.dateDepense = dateDepense;
     }
 
     @Override

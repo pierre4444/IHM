@@ -26,12 +26,10 @@ public class ListeDepensesActivity extends AppCompatActivity {
     private Evenement evenement;
     private ArrayList<Depense> listeDepenses = new ArrayList<>();
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_liste_depenses);
-
 
         mListeDepenses = (ListView) findViewById(R.id.liste_depenses);
         mAddDepenseButton = (Button) findViewById(R.id.add_depenses_button);
@@ -40,7 +38,7 @@ public class ListeDepensesActivity extends AppCompatActivity {
 
         //recuperation de l'evenement de l'activite precedente
         Intent intent = getIntent();
-        if (intent != null) {
+        if (intent != null){
             evenement = intent.getParcelableExtra("evenement");
             System.out.println(evenement.toString());
         }
@@ -61,8 +59,6 @@ public class ListeDepensesActivity extends AppCompatActivity {
                 //envoie de l'evenement pendant le passage d'une activité à l'autre
                 ajoutActivity.putExtra("evenement", evenement); // la clé, la valeur
                 startActivity(ajoutActivity);
-                Intent ajoutDepenseActivity = new Intent(ListeDepensesActivity.this, AjoutDepenseActivity.class);
-                startActivity(ajoutDepenseActivity);
             }
         });
 

@@ -5,22 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".AjoutDepenseActivity"
-    android:layout_margin="10dp">
     tools:context=".AjoutDepenseActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="10dp"
-        android:orientation="vertical">
+        android:layout_marginHorizontal="10dp"
+        android:orientation="vertical"
+        android:isScrollContainer="true">
 
 
     <EditText
         android:id="@+id/titreEvent"
         android:layout_width="match_parent"
-        android:layout_height="67dp"
-        android:layout_marginTop="50px"
+        android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
         android:hint="Titre de l'evenement"
@@ -36,13 +34,12 @@
         android:layout_marginVertical="10dp" />
 
 
-    <DatePicker
-        android:id="@+id/date"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:datePickerMode="spinner"
-        android:calendarViewShown="false"
-        android:layout_marginVertical="10dp"/>
+        <DatePicker
+            android:id="@+id/date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:calendarViewShown="false"
+            android:datePickerMode="spinner" />
 
     <TextView
         android:id="@+id/payePar"

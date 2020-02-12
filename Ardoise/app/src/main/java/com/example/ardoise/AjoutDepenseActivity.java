@@ -23,6 +23,7 @@ import com.example.ardoise.model.Evenement;
 import com.example.ardoise.model.Utilisateur;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class AjoutDepenseActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -38,6 +39,7 @@ public class AjoutDepenseActivity extends AppCompatActivity implements AdapterVi
     private Spinner menuDeroulantPayeur;
     private ArrayList<String> listNoms;
     private Utilisateur payeur;
+    private Date dateDepense;
 
     // TODO : tant que tous les champs de ne sont pas remplis on ne peut pas valider
 
@@ -56,7 +58,6 @@ public class AjoutDepenseActivity extends AppCompatActivity implements AdapterVi
         menuDeroulantPayeur = (Spinner) findViewById(R.id.payeurList);
         datePicker = (DatePicker) findViewById(R.id.date);
 
-        boutonValider.setEnabled(false);
 
 
         //recuperation de l'evenement de l'activite precedente
@@ -74,12 +75,14 @@ public class AjoutDepenseActivity extends AppCompatActivity implements AdapterVi
         }
 
 
+
         //affichage du menu déroulant des payeurs potentiels
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, listNoms);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         menuDeroulantPayeur.setAdapter(adapter);
 
         menuDeroulantPayeur.setOnItemSelectedListener(this);
+
 
         boutonValider.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,9 +104,15 @@ public class AjoutDepenseActivity extends AppCompatActivity implements AdapterVi
                     beneficiaires.add(evenement.getListParticipants().get(2));
                 }
 
+
+
+                dateDepense=new Date(datePicker.getYear(), datePicker.getMonth(), datePicker.getDayOfMonth());
+
                 System.out.println(payeur.getNom());
 
                 Depense depense = new Depense(titreArea.getText().toString(), Integer.parseInt(montantArea.getText().toString()), payeur, beneficiaires);
+
+                depense.setDateDepense(dateDepense);
 
                 evenement.addDepense(depense);
 
@@ -137,4 +146,5 @@ public class AjoutDepenseActivity extends AppCompatActivity implements AdapterVi
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
+
 }
