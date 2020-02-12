@@ -48,6 +48,9 @@ public class ListeDepensesActivity extends AppCompatActivity {
         DepensesAdapter adapter = new DepensesAdapter(this, listeDepenses);
         mListeDepenses.setAdapter(adapter);
 
+        //affichage du solde total du groupe
+        mSoldeTotalText.setText(mSoldeTotalText.getText() + String.valueOf(evenement.getSoldeTotal()) + "€");
+
         //bouton pour ajouter une depense
         mAddDepenseButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,11 +79,8 @@ public class ListeDepensesActivity extends AppCompatActivity {
             }
         });
 
-        if (!evenement.getListDepenses().isEmpty()) {
-            System.out.println(evenement.toString());
 
-            mSoldeTotalText.setText(mSoldeTotalText.getText() + " 0€");
-
+        /*if (!evenement.getListDepenses().isEmpty()) {
             Intent intents = getIntent();
             if (intents != null) {
                 Depense depense = intents.getParcelableExtra("depense");
@@ -91,6 +91,6 @@ public class ListeDepensesActivity extends AppCompatActivity {
             }
 
 
-        }
+        }*/
     }
 }
