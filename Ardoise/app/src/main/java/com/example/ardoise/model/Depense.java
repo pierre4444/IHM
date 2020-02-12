@@ -12,22 +12,21 @@ import java.util.List;
 public class Depense implements Parcelable{
 
     private String titre;
-    private int montant;
+    private Double montant;
     private Utilisateur payeur;
     private Date dateDepense;
     private List<Utilisateur> beneficiaires;
 
-    public Depense(String titre, int montant, Utilisateur payeur, List<Utilisateur> beneficiaires) {
+    public Depense(String titre, Double montant, Utilisateur payeur, List<Utilisateur> beneficiaires) {
         this.titre = titre;
         this.montant = montant;
         this.payeur = payeur;
         this.beneficiaires = beneficiaires;
     }
 
-
     protected Depense(Parcel in) {
         titre = in.readString();
-        montant = in.readInt();
+        montant = in.readDouble();
         payeur = in.readParcelable(Utilisateur.class.getClassLoader());
         beneficiaires = in.createTypedArrayList(Utilisateur.CREATOR);
     }
@@ -52,11 +51,11 @@ public class Depense implements Parcelable{
         this.titre = titre;
     }
 
-    public int getMontant() {
+    public Double getMontant() {
         return montant;
     }
 
-    public void setMontant(int montant) {
+    public void setMontant(Double montant) {
         this.montant = montant;
     }
 
@@ -92,7 +91,7 @@ public class Depense implements Parcelable{
     @Override
     public void writeToParcel(Parcel parcel, int flags) {
         parcel.writeString(titre);
-        parcel.writeInt(montant);
+        parcel.writeDouble(montant);
         parcel.writeParcelable(payeur, flags);
         parcel.writeTypedList(beneficiaires);
     }

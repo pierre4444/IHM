@@ -14,7 +14,7 @@ public class Evenement implements Parcelable {
     private String nom;
     private ArrayList<Utilisateur> listParticipants;
     private ArrayList<Depense> listDepenses;
-    private double soldeTotal;
+    private double soldeTotal=0;
 
     public Evenement(String nom, ArrayList<Utilisateur> listParticipants, ArrayList<Depense> listDepenses) {
         this.nom = nom;

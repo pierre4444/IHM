@@ -152,16 +152,18 @@ public class AjoutDepenseActivity extends AppCompatActivity implements AdapterVi
                 }
 
 
+                //mise à jour du solde du payeur de la depense
+                updateSoldePayeur();
 
-                dateDepense=new Date(datePicker.getYear(), datePicker.getMonth(), datePicker.getDayOfMonth());
+                Depense depense = new Depense(titreArea.getText().toString(), Double.parseDouble(montantArea.getText().toString()), payeur, beneficiaires);
 
-                System.out.println(payeur.getNom());
-
-                Depense depense = new Depense(titreArea.getText().toString(), Integer.parseInt(montantArea.getText().toString()), payeur, beneficiaires);
-
+                dateDepense = new Date(datePicker.getYear(), datePicker.getMonth(), datePicker.getDayOfMonth());
                 depense.setDateDepense(dateDepense);
 
                 evenement.addDepense(depense);
+
+                //mise à jour du solde total de l'evenement
+                updateSoldeTotal();
 
                 //envoie de l'evenement pendant le passage d'une activité à l'autre
                 intent.putExtra("evenement", evenement); // la clé, la valeur
@@ -189,6 +191,13 @@ public class AjoutDepenseActivity extends AppCompatActivity implements AdapterVi
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
+    }
 
+    private void updateSoldeTotal(){
+        evenement.setSoldeTotal(evenement.getSoldeTotal() + Double.parseDouble(montantArea.getText().toString()));
+    }
+
+    private void updateSoldePayeur(){
+        payeur.setSoldeTotal(payeur.getSoldeTotal() + Double.parseDouble(montantArea.getText().toString()));
     }
 }
