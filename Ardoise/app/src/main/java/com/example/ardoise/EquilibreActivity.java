@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -23,6 +25,7 @@ public class EquilibreActivity extends AppCompatActivity {
 
     private TextView mEquilibreText;
     private ListView mEquilibreList;
+    private Button mReturnButton;
 
     private Evenement evenement;
     private ArrayList<Dette> listeDettes;
@@ -36,10 +39,11 @@ public class EquilibreActivity extends AppCompatActivity {
 
         mEquilibreText = (TextView) findViewById(R.id.equilibre_text);
         mEquilibreList = (ListView) findViewById(R.id.equilibre_liste);
+        mReturnButton = (Button) findViewById(R.id.return_button);
 
 
         //recuperation de l'evenement de l'activite precedente
-        Intent i = getIntent();
+        final Intent i = getIntent();
         if (i != null){
             evenement = i.getParcelableExtra("evenement");
         }
@@ -54,6 +58,16 @@ public class EquilibreActivity extends AppCompatActivity {
         DetteAdapter adapter = new DetteAdapter(this, listeDettes);
         mEquilibreList.setAdapter(adapter);
 
+        mReturnButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(EquilibreActivity.this, ListeDepensesActivity.class);
+
+                //envoie de l'evenement pendant le passage d'une activité à l'autre
+                intent.putExtra("evenement", evenement); // la clé, la valeur
+                startActivity(intent);
+            }
+        });
 
     }
 }

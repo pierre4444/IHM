@@ -2,6 +2,7 @@
 
     <!-- Strings globaux -->
     <string name="app_name">Ardoise</string>
+    <string name="return_button_text">RETOUR</string>
 
 
     <!-- Strings accueil -->
@@ -13,10 +14,13 @@
     <!-- Strings liste dépenses -->
     <string name="add_depenses_text">Ajouter une dépense</string>
     <string name="solde_total_text">Solde total : </string>
+
+    <!-- Strings equilibre -->
     <string name="equilibre_button_text">EQUILIBRE</string>
 
+
     <!-- Strings ajout dépense -->
-    <string name="title_add_depenses_text">Titre de le dépense</string>
+    <string name="title_add_depenses_text">Titre de la dépense</string>
     <string name="montant_text">Montant en €</string>
     <string name="payeur_text">Par qui ?</string>
     <string name="to_whom_text">Pour qui ?</string>
