@@ -35,8 +35,6 @@ public class AjoutDepenseActivity extends AppCompatActivity implements AdapterVi
     private ArrayList<String> listNoms;
     private Utilisateur payeur;
 
-    // TODO : tant que tous les champs de ne sont pas remplis on ne peut pas valider
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -101,7 +99,6 @@ public class AjoutDepenseActivity extends AppCompatActivity implements AdapterVi
                 }
             }
         });
-
         montantArea.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
